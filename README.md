@@ -32,7 +32,7 @@ open an issue or contact [me](https://github.com/odyssomay).
 
 ## License 
 
-sublimed-lispindent is licensed under the zlib license:
+sublimed-lispindent is licensed under the [zlib](http://en.wikipedia.org/wiki/Zlib_license) license:
 
 ---
 
