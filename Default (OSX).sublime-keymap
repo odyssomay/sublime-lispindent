@@ -1,0 +1,10 @@
+[
+{
+	"keys": ["super+i"],
+	"command": "lispindent"
+},
+{
+	"keys": ["enter"],
+	"command": "lispindentinsertnewline"
+}
+]
