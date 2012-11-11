@@ -17,8 +17,16 @@ open an issue or contact [me](https://github.com/odyssomay).
 
 ## Key bindings
 
- - `enter`: Insert a new line with indentation
- - `ctrl+i` or `cmd+i`(mac): Indent selected lines (or the current line, if there is no selection).
+<table>
+	<tr>
+		<td>`enter`</td>
+		<td>Insert a new line with indentation</td>
+	</tr>
+	<tr>
+		<td>`ctrl+i` or `cmd+i`(mac)</td>
+		<td>Indent selected lines (or the current line, if there is no selection).</td>
+	</tr>
+</table>
 
 ## License 
 
