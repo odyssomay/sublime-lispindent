@@ -34,11 +34,15 @@ def update_counts(counts, char):
 	elif char == '}': cbr -= 1
 	return (pa, br, cbr)
 
+comment_matcher = re.compile(";[^\"]*$")
+char_matcher = re.compile("\\\\[\(\)\[\]\{\}]")
 def indent(view, idx, options):
 	lines = reversed(view.split_by_newlines(sublime.Region(0, idx)))
 	pa, br, cbr = 0, 0, 0 
 	for line in lines:
-		line_str = view.substr(line)
+		line_str = char_matcher.sub("",
+		             comment_matcher.sub("", 
+		               view.substr(line)))
 		for idx in range(len(line_str) - 1, -1, -1):
 			c = line_str[idx]
 			#for idx, c in enumerate(reversed(line_str)):
