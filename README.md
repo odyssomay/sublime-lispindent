@@ -19,11 +19,11 @@ open an issue or contact [me](https://github.com/odyssomay).
 
 <table>
 	<tr>
-		<td>`enter`</td>
+		<td>enter</td>
 		<td>Insert a new line with indentation</td>
 	</tr>
 	<tr>
-		<td>`ctrl+i` or `cmd+i`(mac)</td>
+		<td>ctrl+i or<br/>cmd+i (mac)</td>
 		<td>Indent selected lines (or the current line, if there is no selection).</td>
 	</tr>
 </table>
