@@ -5,16 +5,23 @@ indent_matcher = re.compile("^[ ]*")
 def current_indent(s):
 	return len(indent_matcher.match(s).group(0))
 
+operator_split_matcher = re.compile("[ \[\]\(\)\{\}]")
 def get_operator(line_str, idx):
 	operator_str = line_str[idx + 1:]
-	return re.split(" ", operator_str)[0]
+	return operator_split_matcher.split(operator_str)[0]
 
 def bracket_indent(idx):      return idx + 1
 def two_space_indent(idx):    return idx + 2
 def operator_indent(op, idx): return idx + len(op) + 2
 
+whitespace_matcher = re.compile("\s*$")
 def parentheses_indent(line_str, idx, options):
 	op = get_operator(line_str, idx)
+	
+	if op == "": return bracket_indent(idx)
+	elif whitespace_matcher.match(line_str[idx + len(op) + 1:]):
+		return two_space_indent(idx)
+
 	is_match = options['regex'].match(op)
 	if options["default_indent"] == "two_space":
 		if is_match: return operator_indent(op, idx)
@@ -48,7 +55,11 @@ def indent(view, idx, options):
 			#for idx, c in enumerate(reversed(line_str)):
 			(pa, br, cbr) = update_counts((pa, br, cbr), c)
 			if br > 0 or cbr > 0: return bracket_indent(idx)
-			elif pa > 0: return parentheses_indent(line_str, idx, options)
+			elif pa > 0:
+				if idx > 0 and line_str[idx - 1] == "'":
+					return bracket_indent(idx)
+				else:
+					return parentheses_indent(line_str, idx, options)
 		if pa == 0 and br == 0 and cbr == 0:
 			return current_indent(line_str)
 	return 0
