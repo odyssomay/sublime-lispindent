@@ -34,16 +34,14 @@ def insert_newline_and_indent(edit, view, options):
 ## View file type + regexps
 
 views = {}
-options = {
-	"clj": {
-		"default_indent": "function",
-		"regex": re.compile("^(def|defn)$")
-	}
-}
+filetypes = []
+options = {}
 
 def get_lisp_file_type(name):
-	if name and re.match(".*\.(clj|cljs)$", name):
-		return "clj"
+	if name:
+		for (language, regex) in filetypes:
+			if regex.match(name):
+				return language
 
 def get_view_file_type(view):
 	vwid = view.id()
@@ -62,8 +60,13 @@ settings = sublime.load_settings("lispindent.sublime-settings")
 def reload_languages():
 	l = settings.get("languages")
 	for language, opts in l.items():
-		print("language = " + language)
-	print("reloaded settings!")
+		compiled = {
+			"detect": re.compile(opts["detect"]),
+			"default_indent": opts["default_indent"],
+			"regex": re.compile(opts["regex"])
+		}
+		filetypes.append((language, compiled["detect"]))
+		options[language] = compiled
 
 settings.add_on_change("languages", reload_languages)
 reload_languages()
