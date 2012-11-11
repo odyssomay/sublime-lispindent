@@ -8,9 +8,11 @@ that properly indents lisp code.
 
 ## Supported languages
 
-- clojure (`.clj`, `.cljs`)
-- common lisp (`.lsp`, `.lisp`)
-- scheme (`.ss`, `.scm`, `.sch`)
+<table>
+	<tr><td>clojure</td><td>.clj, .cljs</td></tr>
+	<tr><td>common lisp</td><td>.lsp, .lisp</td></tr>
+	<tr><td>scheme</td><td>.ss, .scm, .sch</td></tr>
+</table>
 
 If your language is not one of the above, 
 open an issue or contact [me](https://github.com/odyssomay).
