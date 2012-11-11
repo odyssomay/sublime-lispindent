@@ -13,8 +13,13 @@ def bracket_indent(idx):      return idx + 1
 def two_space_indent(idx):    return idx + 2
 def operator_indent(op, idx): return idx + len(op) + 2
 
+whitespace_matcher = re.compile("\s*$")
 def parentheses_indent(line_str, idx, options):
 	op = get_operator(line_str, idx)
+	
+	if whitespace_matcher.match(line_str[idx + len(op) + 1:]):
+		return two_space_indent(idx)
+
 	is_match = options['regex'].match(op)
 	if options["default_indent"] == "two_space":
 		if is_match: return operator_indent(op, idx)
