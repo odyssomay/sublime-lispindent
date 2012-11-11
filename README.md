@@ -34,6 +34,8 @@ open an issue or contact [me](https://github.com/odyssomay).
 
 sublimed-lispindent is licensed under the zlib license:
 
+---
+
 Copyright (c) 2012 Jonathan Fischer Friberg
 
 This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.
