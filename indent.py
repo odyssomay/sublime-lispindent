@@ -53,7 +53,11 @@ def indent(view, idx, options):
 			#for idx, c in enumerate(reversed(line_str)):
 			(pa, br, cbr) = update_counts((pa, br, cbr), c)
 			if br > 0 or cbr > 0: return bracket_indent(idx)
-			elif pa > 0: return parentheses_indent(line_str, idx, options)
+			elif pa > 0:
+				if idx > 0 and line_str[idx - 1] == "'":
+					return bracket_indent(idx)
+				else:
+					return parentheses_indent(line_str, idx, options)
 		if pa == 0 and br == 0 and cbr == 0:
 			return current_indent(line_str)
 	return 0
