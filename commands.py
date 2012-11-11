@@ -35,8 +35,7 @@ def insert_newline_and_indent(edit, view, options):
 
 views = {}
 filetypes = []
-options = {
-}
+options = {}
 
 def get_lisp_file_type(name):
 	if name:
