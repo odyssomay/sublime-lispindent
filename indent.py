@@ -5,9 +5,10 @@ indent_matcher = re.compile("^[ ]*")
 def current_indent(s):
 	return len(indent_matcher.match(s).group(0))
 
+operator_split_matcher = re.compile("[ \[\]\(\)\{\}]")
 def get_operator(line_str, idx):
 	operator_str = line_str[idx + 1:]
-	return re.split(" ", operator_str)[0]
+	return operator_split_matcher.split(operator_str)[0]
 
 def bracket_indent(idx):      return idx + 1
 def two_space_indent(idx):    return idx + 2
