@@ -17,7 +17,8 @@ whitespace_matcher = re.compile("\s*$")
 def parentheses_indent(line_str, idx, options):
 	op = get_operator(line_str, idx)
 	
-	if whitespace_matcher.match(line_str[idx + len(op) + 1:]):
+	if op == "": return bracket_indent(idx)
+	elif whitespace_matcher.match(line_str[idx + len(op) + 1:]):
 		return two_space_indent(idx)
 
 	is_match = options['regex'].match(op)
