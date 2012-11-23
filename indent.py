@@ -45,21 +45,23 @@ comment_matcher = re.compile(";[^\"]*$")
 char_matcher = re.compile("\\\\[\(\)\[\]\{\}]")
 def indent(view, idx, options):
 	lines = reversed(view.split_by_newlines(sublime.Region(0, idx)))
-	pa, br, cbr = 0, 0, 0 
+	pa, br, cbr = 0, 0, 0
+	is_outside_str = True
 	for line in lines:
 		line_str = char_matcher.sub("",
 		             comment_matcher.sub("", 
 		               view.substr(line)))
 		for idx in range(len(line_str) - 1, -1, -1):
 			c = line_str[idx]
-			#for idx, c in enumerate(reversed(line_str)):
-			(pa, br, cbr) = update_counts((pa, br, cbr), c)
-			if br > 0 or cbr > 0: return bracket_indent(idx)
-			elif pa > 0:
-				if idx > 0 and line_str[idx - 1] == "'":
-					return bracket_indent(idx)
-				else:
-					return parentheses_indent(line_str, idx, options)
+			if c == "\"": is_outside_str = not is_outside_str
+			if is_outside_str:
+				(pa, br, cbr) = update_counts((pa, br, cbr), c)
+				if br > 0 or cbr > 0: return bracket_indent(idx)
+				elif pa > 0:
+					if idx > 0 and line_str[idx - 1] == "'":
+						return bracket_indent(idx)
+					else:
+						return parentheses_indent(line_str, idx, options)
 		if pa == 0 and br == 0 and cbr == 0:
 			return current_indent(line_str)
 	return 0
