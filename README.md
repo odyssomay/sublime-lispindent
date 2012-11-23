@@ -54,7 +54,7 @@ Example: `lsp|lisp` for common lisp.
 	</tr>
 </table>
 
-Changing the key bindings is done in the menu `Preferences->Lispindent`.
+To change key bindings, open the menu `Preferences->Lispindent`.
 Select `Key Bindings – Default` for windows/linux, and 
 `Key Bindings – OSX` for mac.
 
