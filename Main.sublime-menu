@@ -11,9 +11,9 @@
 		{"caption": "Settings", "command": "open_file", "args":
 		{"file": "${packages}/lispindent/lispindent.sublime-settings"}
 		},
-		{"caption": "Keybindings - Default", "command": "open_file", "args":
+		{"caption": "Key Bindings – Default", "command": "open_file", "args":
 		{"file": "${packages}/lispindent/Default.sublime-keymap"}},
-		{"caption": "Keybindings - OSX", "command": "open_file", "args":
+		{"caption": "Key Bindings – OSX", "command": "open_file", "args":
 		{"file": "${packages}/lispindent/Default (OSX).sublime-keymap"}}
 		]
 	}
