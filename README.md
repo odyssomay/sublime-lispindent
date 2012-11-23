@@ -27,7 +27,7 @@ languages, I recommend the following:
 ```json
 "<language-name>": {
 	"detect": ".*\\.(<file-endings>)$",
-	"default_indent": "defn",
+	"default_indent": "two_space",
 	"regex": "$"
 }
 ```
