@@ -3,7 +3,7 @@ that properly indents lisp code.
 
 ## Installation
 
-1. Download the [package](https://github.com/odyssomay/sublime-lispindent/blob/master/lispindent.sublime-package?raw=true).
+1. Download the [package](https://github.com/downloads/odyssomay/sublime-lispindent/lispindent.sublime-package).
 2. In your sublime installation folder, place the package in `Pristine Packages`.
 
 ## Supported languages
