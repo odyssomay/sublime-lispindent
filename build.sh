@@ -1,2 +1,2 @@
-zip lispindent *.py *.sublime-keymap *.sublime-settings
+zip lispindent *.py *.sublime-keymap *.sublime-settings *.sublime-menu
 mv lispindent.zip lispindent.sublime-package

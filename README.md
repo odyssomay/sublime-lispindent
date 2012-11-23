@@ -14,8 +14,32 @@ that properly indents lisp code.
 	<tr><td>scheme</td><td>.ss, .scm, .sch</td></tr>
 </table>
 
-If your language is not one of the above, 
-open an issue or contact [me](https://github.com/odyssomay).
+If your language is not one of the above,
+open an issue or contact [me](https://github.com/odyssomay)
+to get it included.
+
+You can also add your own language or change the existing configurations 
+in the menu `Preferences->Lispindent->Settings`.
+
+For a minimal configuration that should work fine for most
+languages, I recommend the following:
+
+```json
+"<language-name>": {
+	"detect": ".*\\.(<file-endings>)$",
+	"default_indent": "two_space",
+	"regex": "$"
+}
+```
+
+Replace `<language-name>` with the name of your language.
+It does not matter what you write here, as long as it is distinct from
+the other languages.
+
+Replace `<file-endings>` with the possible file endings for your language.
+Note: without the dot!
+Delimit endings with `|`. 
+Example: `lsp|lisp` for common lisp.
 
 ## Key bindings
 
@@ -29,6 +53,10 @@ open an issue or contact [me](https://github.com/odyssomay).
 		<td>Indent selected lines (or the current line, if there is no selection).</td>
 	</tr>
 </table>
+
+Changing the key bindings is done in the menu `Preferences->Lispindent`.
+Select `Key Bindings – Default` for windows/linux, and 
+`Key Bindings – OSX` for mac.
 
 ## License 
 

@@ -1,0 +1,22 @@
+[
+{
+	"caption": "Preferences",
+	"mnemonic": "n",
+	"id": "preferences",
+	"children": 
+	[
+	{
+		"caption": "Lispindent",
+		"children": [
+		{"caption": "Settings", "command": "open_file", "args":
+		{"file": "${packages}/lispindent/lispindent.sublime-settings"}
+		},
+		{"caption": "Key Bindings – Default", "command": "open_file", "args":
+		{"file": "${packages}/lispindent/Default.sublime-keymap"}},
+		{"caption": "Key Bindings – OSX", "command": "open_file", "args":
+		{"file": "${packages}/lispindent/Default (OSX).sublime-keymap"}}
+		]
+	}
+	]
+}
+]
