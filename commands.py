@@ -61,6 +61,11 @@ def test_view(view):
 		file_type = get_lisp_file_type(view.file_name())
 		if file_type: views[vwid] = file_type
 
+def test_current_view():
+	win = sublime.active_window()
+	view = win.active_view()
+	test_view(view)
+
 settings = None
 def reload_languages():
 	l = settings.get("languages")
@@ -74,7 +79,7 @@ def reload_languages():
 		options[language] = compiled
 
 reload_has_init = False
-def init_reload():
+def init_env():
 	global reload_has_init
 	global settings
 	if not reload_has_init:
@@ -82,13 +87,14 @@ def init_reload():
 		settings.add_on_change("languages", reload_languages)
 		reload_languages()
 		reload_has_init = True
+		test_current_view()
 
 ###############################
 ## Commands
 
 class LispindentCommand(sublime_plugin.TextCommand):  
     def run(self, edit):
-    	init_reload()
+    	init_env()
     	view = self.view
     	if should_use_lisp_indent(view.id()):
     		indent_selections(edit, view, get_view_options(view))
@@ -97,7 +103,7 @@ class LispindentCommand(sublime_plugin.TextCommand):
 
 class LispindentinsertnewlineCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		init_reload()
+		init_env()
 		view = self.view
 		if should_use_lisp_indent(view.id()):
 			insert_newline_and_indent(edit, view, get_view_options(view))
@@ -107,5 +113,5 @@ class LispindentinsertnewlineCommand(sublime_plugin.TextCommand):
 class LispIndentListenerCommand(sublime_plugin.EventListener):
 	last_sel = []
 	def on_activated(self, view):
-		init_reload()
+		init_env()
 		test_view(view)
