@@ -55,6 +55,12 @@ def get_view_options(view):
 def should_use_lisp_indent(vwid):
 	return vwid in views
 
+def test_view(view):
+	vwid = view.id()
+	if not vwid in views:
+		file_type = get_lisp_file_type(view.file_name())
+		if file_type: views[vwid] = file_type
+
 settings = None
 def reload_languages():
 	l = settings.get("languages")
@@ -101,7 +107,5 @@ class LispindentinsertnewlineCommand(sublime_plugin.TextCommand):
 class LispIndentListenerCommand(sublime_plugin.EventListener):
 	last_sel = []
 	def on_activated(self, view):
-		vwid = view.id()
-		if not vwid in views:
-			file_type = get_lisp_file_type(view.file_name())
-			if file_type: views[vwid] = file_type
+		init_reload()
+		test_view(view)
