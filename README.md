@@ -63,7 +63,7 @@ Example: `lsp|lisp` for common lisp.
 		<td>Insert a new line with indentation</td>
 	</tr>
 	<tr>
-		<td>ctrl+i or<br/>cmd+i (mac)</td>
+		<td>ctrl+i or<br/>cmd+i (osx)</td>
 		<td>Indent selected lines (or the current line, if there is no selection).</td>
 	</tr>
 </table>
