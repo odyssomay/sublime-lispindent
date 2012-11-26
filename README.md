@@ -3,8 +3,22 @@ that properly indents lisp code.
 
 ## Installation
 
+### With package control (recommended)
+
+Use [Sublime Package Control](http://wbond.net/sublime_packages/package_control),
+the package is called `lispindent`.
+
+### Manually
+
 1. Download the [package](https://github.com/downloads/odyssomay/sublime-lispindent/lispindent.sublime-package).
-2. In your sublime installation folder, place the package in `Pristine Packages`.
+2. If you have a full installation of sublime, it should be possible
+to double click the package to install it. 
+Otherwise, place the package in `Installed Packages` inside your data folder.
+The location of the data folder varies between systems:
+ 
+ * *Linux* - `~/.config/sublime-text-2`
+ * *OSX* - `~/Library/Application Support/Sublime Text 2`
+ * *Windows* - `%APPDATA%\Sublime Text 2`
 
 ## Supported languages
 
