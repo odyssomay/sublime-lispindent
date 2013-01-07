@@ -63,8 +63,9 @@ def test_view(view):
 
 def test_current_view():
 	win = sublime.active_window()
-	view = win.active_view()
-	test_view(view)
+	if win:
+		view = win.active_view()
+		test_view(view)
 
 settings = None
 def reload_languages():
