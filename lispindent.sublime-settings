@@ -3,7 +3,7 @@
 		"clojure": {
 			"detect": ".*\\.(clj|cljs)$",
 			"default_indent": "function",
-			"regex": "(ns|fn|def|defn|bound-fn|if|if-not|case|condp|when|while|when-not|when-first|do|future|comment|doto|locking|proxy|with-open|with-precision|with-local-vars|reify|deftype|defrecord|defprotocol|extend|extend-protocol|extend-type|try|catch|finally|let|letfn|binding|loop|for|doseq|dotimes|when-let|if-let|defstruct|struct-map|assoc|defmethod|testing|deftest|use-fixtures|handler-case|handle|dotrace|deftrace)$"
+			"regex": "(ns|fn|def|defn|defmacro|bound-fn|if|if-not|case|condp|when|while|when-not|when-first|do|future|comment|doto|locking|proxy|with-open|with-precision|with-local-vars|reify|deftype|defrecord|defprotocol|extend|extend-protocol|extend-type|try|catch|finally|let|letfn|binding|loop|for|doseq|dotimes|when-let|if-let|defstruct|struct-map|assoc|defmethod|testing|deftest|use-fixtures|handler-case|handle|dotrace|deftrace)$"
 		},
 
 		"scheme": {
