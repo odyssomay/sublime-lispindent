@@ -116,3 +116,9 @@ class LispIndentListenerCommand(sublime_plugin.EventListener):
 	def on_activated(self, view):
 		init_env()
 		test_view(view)
+
+	def on_query_context(self, view, key, operator, operand, match_all):
+		if key == "shoulduselispindent":
+			init_env()
+			test_view(view)
+			return should_use_lisp_indent(view.id())
