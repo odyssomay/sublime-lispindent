@@ -97,6 +97,7 @@ class LispindentCommand(sublime_plugin.TextCommand):
     def run(self, edit):
     	init_env()
     	view = self.view
+    	test_view(view)
     	if should_use_lisp_indent(view.id()):
     		indent_selections(edit, view, get_view_options(view))
     	else:
@@ -106,17 +107,13 @@ class LispindentinsertnewlineCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		init_env()
 		view = self.view
+		test_view(view)
 		if should_use_lisp_indent(view.id()):
 			insert_newline_and_indent(edit, view, get_view_options(view))
 		else:
 			view.run_command("insert", {"characters": "\n"})
 
 class LispIndentListenerCommand(sublime_plugin.EventListener):
-	last_sel = []
-	def on_activated(self, view):
-		init_env()
-		test_view(view)
-
 	def on_query_context(self, view, key, operator, operand, match_all):
 		if key == "shoulduselispindent":
 			init_env()
