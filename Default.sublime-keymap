@@ -7,6 +7,13 @@
 {
 	"keys": ["enter"],
 	"command": "lispindentinsertnewline",
-	"context": [{"key": "shoulduselispindent"}]
+	"context": [
+		{"key": "shoulduselispindent"},
+		{
+			"key": "auto_complete_visible",
+			"operator": "equal",
+			"operand": false
+		}
+	]
 }
 ]
