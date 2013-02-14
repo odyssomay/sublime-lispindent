@@ -15,5 +15,22 @@
 			"operand": false
 		}
 	]
+},
+
+{
+	"keys": ["enter"],
+	"command": "lispindentinsertnewline",
+	"context": [
+		{"key": "shoulduselispindent"},
+		{
+			"key": "auto_complete_visible",
+			"operator": "equal",
+			"operand": true
+		},
+		{
+			"key": "setting.auto_complete_commit_on_tab",
+			"operand": true
+		}
+	]
 }
 ]
