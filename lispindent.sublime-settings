@@ -9,7 +9,7 @@
 		"scheme": {
 			"detect": ".*\\.(ss|scm|sch)$",
 			"default_indent": "function",
-			"regex": "(begin|case|delay|do|lambda|let|let\\*|letrec|let-values|let\\*-values|sequence|let-syntax|letrec-syntax|syntax-rules|syntax-case|call-with-input-file|with-input-from-file|with-input-from-port|call-with-output-file|with-output-to-file|with-output-to-port|call-with-values|dynamic-wind)$"
+			"regex": "(begin|case|delay|do|define|lambda|let|let\\*|letrec|let-values|let\\*-values|sequence|let-syntax|letrec-syntax|syntax-rules|syntax-case|call-with-input-file|with-input-from-file|with-input-from-port|call-with-output-file|with-output-to-file|with-output-to-port|call-with-values|dynamic-wind)$"
 		},
 
 		"common_lisp": {
