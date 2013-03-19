@@ -53,7 +53,8 @@ def indent(view, idx, options):
 		               view.substr(line)))
 		for idx in range(len(line_str) - 1, -1, -1):
 			c = line_str[idx]
-			if c == "\"": is_outside_str = not is_outside_str
+			if c == "\"" and idx > 0 and line_str[idx-1] != "\\":
+				is_outside_str = not is_outside_str
 			if is_outside_str:
 				(pa, br, cbr) = update_counts((pa, br, cbr), c)
 				if br > 0 or cbr > 0: return bracket_indent(idx)
