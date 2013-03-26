@@ -74,7 +74,7 @@ Select `Key Bindings – Default` for windows/linux, or
 
 ## License 
 
-sublimed-lispindent is licensed under the [zlib](http://en.wikipedia.org/wiki/Zlib_license) license:
+sublime-lispindent is licensed under the [zlib](http://en.wikipedia.org/wiki/Zlib_license) license:
 
 ---
 
