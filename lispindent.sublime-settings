@@ -10,10 +10,41 @@
 			 "doseq|dotimes|when-let|if-let|defstruct|struct-map|assoc|defmethod|testing|deftest|use-fixtures|",
 			 "handler-case|handle|dotrace|deftrace)$"]
 		},
+
+		"racket": {
+			"detect": ".*\\.(rkt|rktl|rktd)$",
+			"default_indent": "function",
+			"regex":
+			["(define:?|define-predicate|define-struct/exec|define-struct:|define-type|",
+			 "define-typed-struct|local|match-define|pdefine:|struct:?|",
+
+			 "call-with-input-file|call-with-input-file\\*|call-with-output-file|case|cases|catch|",
+			 "class|class\\*|class\\*/names|class-asi|class100|class100\\*|class100\\*/names|class100-asi|",
+			 "class100-asi\\*|define-record|define-some|do|do:|fluid-let|fluid-let-syntax|for|for\\*|",
+			 "for\\*/and|for\\*/and:|for\\*/first|for\\*/first:|for\\*/flvector|for\\*/flvector:|for\\*/fold|",
+			 "for\\*/fold:|for\\*/hash|for\\*/hash:|for\\*/hasheq|for\\*/hasheq:|for\\*/hasheqv|for\\*/hasheqv:|",
+			 "for\\*/last|for\\*/last:|for\\*/list|for\\*/list:|for\\*/lists|for\\*/lists:|for\\*/or|for\\*/or:|",
+			 "for\\*/product|for\\*/product:|for\\*/sum|for\\*/sum:|for\\*/vector|for\\*/vector:|for\\*:|for-all|",
+			 "for/and|for/and:|for/first|for/first:|for/flvector|for/flvector:|for/fold|for/fold:|",
+			 "for/hash|for/hash:|for/hasheq|for/hasheq:|for/hasheqv|for/hasheqv:|for/last|for/last:|",
+			 "for/list|for/list:|for/lists|for/lists:|for/or|for/or:|for/product|for/product:|",
+			 "for/sum|for/sum:|for/vector|for/vector:|for:|instantiate|interface|kernel-syntax-case|",
+			 "lambda|lambda/kw|lambda:|let|let\\*|let\\*-values|let\\*-values:|let\\*:|let-enumerate|let-macro|",
+			 "let-signature|let-struct|let-syntax|let-values|let-values:|let/cc|let/cc:|let/ec|",
+			 "let/ec:|let:|letcc|letrec|letrec-syntax|letrec-syntaxes+values|letrec-values|",
+			 "letrec-values:|letrec:|make-object|match|match\\*|match-let|match-let\\*|match-letrec|",
+			 "mixin|module|module\\*|module+|opt-lambda|opt-lambda:|parameterize|plambda:|popt-lambda:|",
+			 "quasisyntax/loc|rec|recur|send\\*|shared|splicing-let|splicing-let-syntax|",
+			 "splicing-let-syntaxes|splicing-let-values|splicing-letrec|splicing-letrec-syntax|",
+			 "splicing-letrec-syntaxes|splicing-letrec-syntaxes+values|splicing-letrec-values|",
+			 "splicing-local|splicing-syntax-parameterize|super-instantiate|syntax-case|syntax-case\\*|",
+			 "syntax-id-rules|syntax-rules|syntax/loc|type-case|unit/lang|unit/sig|unless|when|",
+			 "with-continuation-mark|with-handlers|with-input-from-file|with-input-from-port|",
+			 "with-method|with-output-to-file|with-output-to-port|with-syntax|λ|λ:)$"]
 		},
 
 		"scheme": {
-			"detect": ".*\\.(ss|scm|sch|rkt)$",
+			"detect": ".*\\.(ss|scm|sch)$",
 			"default_indent": "function",
 			"regex":
 			["(begin|case|delay|do|define|lambda|let|let\\*|letrec|let-values|let\\*-values|sequence|let-syntax|letrec-syntax|",
