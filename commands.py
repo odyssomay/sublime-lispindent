@@ -67,14 +67,23 @@ def test_current_view():
 		view = win.active_view()
 		test_view(view)
 
+def join_regex(regex):
+	if isinstance(regex, str):
+		return regex
+	else:
+		out = ""
+		for part in regex: out += part
+		return out
+
 settings = None
 def reload_languages():
 	l = settings.get("languages")
 	for language, opts in l.items():
+		regex = join_regex(opts["regex"])
 		compiled = {
 			"detect": re.compile(opts["detect"]),
 			"default_indent": opts["default_indent"],
-			"regex": re.compile(opts["regex"])
+			"regex": re.compile(regex)
 		}
 		filetypes.append((language, compiled["detect"]))
 		options[language] = compiled
