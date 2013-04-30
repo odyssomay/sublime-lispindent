@@ -103,14 +103,14 @@ def init_env():
 ## Commands
 
 class LispindentCommand(sublime_plugin.TextCommand):  
-    def run(self, edit):
-    	init_env()
-    	view = self.view
-    	test_view(view)
-    	if should_use_lisp_indent(view.id()):
-    		indent_selections(edit, view, get_view_options(view))
-    	else:
-    		view.run_command("reindent")
+	def run(self, edit):
+		init_env()
+		view = self.view
+		test_view(view)
+		if should_use_lisp_indent(view.id()):
+			indent_selections(edit, view, get_view_options(view))
+		else:
+			view.run_command("reindent")
 
 class LispindentinsertnewlineCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
