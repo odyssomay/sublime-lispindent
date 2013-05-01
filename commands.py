@@ -3,7 +3,7 @@ import sublime, sublime_plugin
 try:
 	import indent
 except:
-	import lispindent.indent
+	from lispindent import indent
 
 def indent_line(edit, view, line, options):
 	line_str = view.substr(line)
