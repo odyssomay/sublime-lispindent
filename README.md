@@ -10,10 +10,10 @@ the package is called `lispindent`.
 
 ### Manually
 
-1. Download the [package](https://github.com/downloads/odyssomay/sublime-lispindent/lispindent.sublime-package).
-2. If you have a full installation of sublime, it should be possible
-to double click the package to install it. 
-Otherwise, place the package in `Installed Packages` inside your data folder.
+1. Clone the repository or download the [zipfile](https://github.com/odyssomay/sublime-lispindent/archive/master.zip).
+2. The resulting folder - either from cloning or unzipping - should be moved to
+`Installed Packages` inside your data folder.
+
 The location of the data folder varies between systems:
  
  * *Linux* - `~/.config/sublime-text-2`
