@@ -1,6 +1,35 @@
 import sublime, sublime_plugin
 import re
 
+####
+#### Get Line without comments & strings
+def overlapping_regions(test_region, regions):
+	out = []
+	for region in regions:
+		if region.intersects(test_region):
+			out += [region]
+
+	return out
+
+def remove_overlapping_regions(string, region, regions):
+	for r in regions:
+		b = max(r.begin(), region.begin()) - region.begin()
+		e = min(r.end(), region.end()) - region.begin()
+		string = string[:b] + ("_" * (e - b)) + string[e:]
+
+	return string
+
+def get_string_for_region(view, region):
+	comments = overlapping_regions(
+		region, view.find_by_selector("comment"))
+	strings = overlapping_regions(
+		region, view.find_by_selector("string"))
+
+	line_str = view.substr(region)
+	line_str = remove_overlapping_regions(line_str, region, strings)
+	line_str = remove_overlapping_regions(line_str, region, comments)
+
+	return line_str
 indent_matcher = re.compile("^[ ]*")
 def current_indent(s):
 	return len(indent_matcher.match(s).group(0))
