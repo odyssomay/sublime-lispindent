@@ -30,6 +30,23 @@ def get_string_for_region(view, region):
 	line_str = remove_overlapping_regions(line_str, region, comments)
 
 	return line_str
+
+####
+#### String detection
+def is_region_inside_regions(test_region, regions):
+	for region in regions:
+		if region.contains(test_region):
+			return region
+
+	return False
+
+def is_inside_string(view, point):
+	test_region = sublime.Region(point, point)
+	regions = view.find_by_selector("string")
+	return is_region_inside_regions(test_region, regions)
+
+####
+#### Indenting
 indent_matcher = re.compile("^[ ]*")
 def current_indent(s):
 	return len(indent_matcher.match(s).group(0))
@@ -70,28 +87,27 @@ def update_counts(counts, char):
 	elif char == '}': cbr -= 1
 	return (pa, br, cbr)
 
-comment_matcher = re.compile(";[^\"]*$")
-char_matcher = re.compile("\\\\[\(\)\[\]\{\}]")
 def indent(view, idx, options):
+	str_region = is_inside_string(view, idx)
+	if str_region:
+		b = str_region.begin()
+		return b - view.line(b).begin()
+
 	lines = reversed(view.split_by_newlines(sublime.Region(0, idx)))
 	pa, br, cbr = 0, 0, 0
-	is_outside_str = True
+
 	for line in lines:
-		line_str = char_matcher.sub("",
-		             comment_matcher.sub("", 
-		               view.substr(line)))
+		line_str = get_string_for_region(view, line)
 		for idx in range(len(line_str) - 1, -1, -1):
 			c = line_str[idx]
-			if c == "\"" and idx > 0 and line_str[idx-1] != "\\":
-				is_outside_str = not is_outside_str
-			if is_outside_str:
-				(pa, br, cbr) = update_counts((pa, br, cbr), c)
-				if br > 0 or cbr > 0: return bracket_indent(idx)
-				elif pa > 0:
-					if idx > 0 and line_str[idx - 1] == "'":
-						return bracket_indent(idx)
-					else:
-						return parentheses_indent(line_str, idx, options)
+			
+			(pa, br, cbr) = update_counts((pa, br, cbr), c)
+			if br > 0 or cbr > 0: return bracket_indent(idx)
+			elif pa > 0:
+				if idx > 0 and line_str[idx - 1] == "'":
+					return bracket_indent(idx)
+				else:
+					return parentheses_indent(line_str, idx, options)
 		if pa == 0 and br == 0 and cbr == 0:
 			return current_indent(line_str)
 	return 0
