@@ -107,6 +107,7 @@ def init_env():
 
 class LispindentCommand(sublime_plugin.TextCommand):  
 	def run(self, edit):
+		print("lispindent")
 		init_env()
 		view = self.view
 		test_view(view)
@@ -131,3 +132,25 @@ class LispIndentListenerCommand(sublime_plugin.EventListener):
 			init_env()
 			test_view(view)
 			return should_use_lisp_indent(view.id())
+
+####
+#### Override
+class ViewOverrideRunNNNNNNNNNNNNNNNNNNNNNNCommand(sublime_plugin.TextCommand):
+	def __init__(this, view):
+		old_run_command = getattr(view, "run_command")
+
+		def new_run_command(name, args={}):
+			if name == "reindent":
+				init_env()
+				test_view(view)
+				if should_use_lisp_indent(view.id()):
+					old_run_command("lispindent")
+				else:
+					old_run_command("reindent")
+			else:
+				old_run_command(name, args)
+
+		setattr(view, "run_command", new_run_command)
+
+	def run(this, edit):
+		pass
