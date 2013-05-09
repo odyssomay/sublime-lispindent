@@ -107,7 +107,6 @@ def init_env():
 
 class LispindentCommand(sublime_plugin.TextCommand):  
 	def run(self, edit):
-		print("lispindent")
 		init_env()
 		view = self.view
 		test_view(view)
