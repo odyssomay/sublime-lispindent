@@ -29,9 +29,23 @@ def indent_selections(edit, view, options):
 		indent_selection(edit, view, i, options)
 
 def insert_newline_and_indent(edit, view, options):
-	idx = view.sel()[0].begin()
-	view.insert(edit, idx, 
-	            "\n" + indent.get_indent_str(view, idx, options))
+	total = len(view.sel())
+	out = []
+
+	for i in range(total):
+		region = view.sel()[i]
+		view.erase(edit, region)
+		idx = region.begin()
+		out += [sublime.Region(idx, idx)]
+
+	sel = view.sel()
+	sel.clear()
+	for region in out: sel.add(region)
+
+	for i in range(total):
+		idx = view.sel()[i].begin()
+		view.insert(edit, idx,
+			"\n" + indent.get_indent_str(view, idx, options))
 
 ###############################
 ## View file type + regexps
