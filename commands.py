@@ -66,7 +66,7 @@ def get_view_file_type(view):
 
 def get_view_options(view):
 	ft = get_view_file_type(view)
-	if ft and ft in options:
+	if ft and (ft in options):
 		return options[ft]
 
 def should_use_lisp_indent(vwid):
