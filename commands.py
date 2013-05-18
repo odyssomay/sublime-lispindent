@@ -54,11 +54,14 @@ views = {}
 filetypes = []
 options = {}
 
-def get_lisp_file_type(name):
-	if name:
-		for (language, regex) in filetypes:
-			if regex.match(name):
-				return language
+def get_lisp_file_type(view):
+	for (language, regex, syntax) in filetypes:
+		view_syntax = view.settings().get('syntax')
+		syntax_matches = syntax and view_syntax.endswith(syntax)
+		file_name = view.file_name()
+		filename_matches = file_name and regex.match(file_name)
+		if filename_matches or syntax_matches:
+			return language
 
 def get_view_file_type(view):
 	vwid = view.id()
@@ -69,13 +72,13 @@ def get_view_options(view):
 	if ft and (ft in options):
 		return options[ft]
 
-def should_use_lisp_indent(vwid):
-	return vwid in views
+def should_use_lisp_indent(view):
+	return view.id() in views
 
 def test_view(view):
 	vwid = view.id()
 	if not vwid in views:
-		file_type = get_lisp_file_type(view.file_name())
+		file_type = get_lisp_file_type(view)
 		if file_type: views[vwid] = file_type
 
 def test_current_view():
@@ -102,7 +105,7 @@ def reload_languages():
 			"default_indent": opts["default_indent"],
 			"regex": re.compile(regex)
 		}
-		filetypes.append((language, compiled["detect"]))
+		filetypes.append((language, compiled["detect"], opts.get("syntax", None)))
 		options[language] = compiled
 
 reload_has_init = False
@@ -124,7 +127,7 @@ class LispindentCommand(sublime_plugin.TextCommand):
 		init_env()
 		view = self.view
 		test_view(view)
-		if should_use_lisp_indent(view.id()):
+		if should_use_lisp_indent(view):
 			indent_selections(edit, view, get_view_options(view))
 		else:
 			view.run_command("reindent")
@@ -134,7 +137,7 @@ class LispindentinsertnewlineCommand(sublime_plugin.TextCommand):
 		init_env()
 		view = self.view
 		test_view(view)
-		if should_use_lisp_indent(view.id()):
+		if should_use_lisp_indent(view):
 			insert_newline_and_indent(edit, view, get_view_options(view))
 		else:
 			view.run_command("insert", {"characters": "\n"})
@@ -144,7 +147,7 @@ class LispIndentListenerCommand(sublime_plugin.EventListener):
 		if key == "shoulduselispindent":
 			init_env()
 			test_view(view)
-			return should_use_lisp_indent(view.id())
+			return should_use_lisp_indent(view)
 
 ####
 #### Override
@@ -163,7 +166,7 @@ class ViewOverrideRunNNNNNNNNNNNNNNNNNNNNNNCommand(sublime_plugin.TextCommand):
 			if name == "reindent":
 				init_env()
 				test_view(view)
-				if should_use_lisp_indent(view.id()):
+				if should_use_lisp_indent(view):
 					old_run_command("lispindent")
 				else:
 					old_run_command("reindent")
