@@ -148,6 +148,13 @@ class LispIndentListenerCommand(sublime_plugin.EventListener):
 
 ####
 #### Override
+def listen_to_syntax_change(view):
+	def on_syntax_change():
+		# this should "reload the view"
+		pass
+
+	view.settings().add_on_change("syntax", on_syntax_change)
+
 class ViewOverrideRunNNNNNNNNNNNNNNNNNNNNNNCommand(sublime_plugin.TextCommand):
 	def __init__(this, view):
 		old_run_command = getattr(view, "run_command")
@@ -164,6 +171,8 @@ class ViewOverrideRunNNNNNNNNNNNNNNNNNNNNNNCommand(sublime_plugin.TextCommand):
 				old_run_command(name, args)
 
 		setattr(view, "run_command", new_run_command)
+
+		listen_to_syntax_change(view)
 
 	def run(this, edit):
 		pass
