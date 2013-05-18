@@ -47,7 +47,7 @@ def is_inside_string(view, point):
 
 ####
 #### Indenting
-indent_matcher = re.compile("^[ ]*")
+indent_matcher = re.compile("^[ \t]*")
 def current_indent(s):
 	return len(indent_matcher.match(s).group(0))
 
