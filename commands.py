@@ -11,7 +11,7 @@ def indent_line(edit, view, line, options):
 	new_indent = indent.indent(view, line.begin(), options)
 	if not current_indent == new_indent:
 		view.replace(edit,
-		   sublime.Region(line.begin(), 
+		   sublime.Region(line.begin(),
 		                  line.begin() + current_indent),
 		   " " * new_indent)
 
