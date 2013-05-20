@@ -33,17 +33,9 @@ def get_string_for_region(view, region):
 
 ####
 #### String detection
-def is_point_inside_regions(point, regions):
-	for region in regions:
-		if point > region.begin() and point < region.end():
-			return region
-
-	return False
-
 def is_inside_string(view, point):
-	test_region = sublime.Region(point, point)
-	regions = view.find_by_selector("string")
-	return is_point_inside_regions(point, regions)
+	if view.score_selector(point, "string") > 0:
+		return view.extract_scope(point)
 
 ####
 #### Indenting
