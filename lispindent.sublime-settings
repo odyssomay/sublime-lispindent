@@ -1,7 +1,7 @@
 {
 	"languages": {
 		"clojure": {
-			"detect": ".*\\.(clj|cljs)$",
+			"detect": ".*\\.(clj|cljs|edn)$",
 			"default_indent": "function",
 			"regex":
 			["(ns|fn|def[^\\s]*|bound-fn|if|if-not|case|condp|when|while|when-not|when-first|do|future|",
