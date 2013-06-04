@@ -36,7 +36,7 @@ def get_string_for_region(view, region):
 def is_point_inside_regions(point, regions):
 	for region in regions:
 		if point > region.begin() and point < region.end():
-		return region
+			return region
 
 	return False
 
