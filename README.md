@@ -15,7 +15,7 @@ the package is called `lispindent`.
 `Installed Packages` inside your data folder.
 
 The location of the data folder varies between systems:
- 
+
  * *Linux* - `~/.config/sublime-text-2`
  * *OSX* - `~/Library/Application Support/Sublime Text 2`
  * *Windows* - `%APPDATA%\Sublime Text 2`
@@ -23,7 +23,7 @@ The location of the data folder varies between systems:
 ## Supported languages
 
 <table>
-	<tr><td>clojure</td><td>.clj, .cljs</td></tr>
+	<tr><td>clojure</td><td>.clj, .cljs, .edn</td></tr>
 	<tr><td>common lisp</td><td>.lsp, .lisp</td></tr>
 	<tr><td>racket</td><td>.rkt, .rktd, .rktl</td></tr>
 	<tr><td>scheme</td><td>.ss, .scm, .sch</td></tr>
@@ -33,7 +33,7 @@ If your language is not one of the above,
 open an issue or contact [me](https://github.com/odyssomay)
 to get it included.
 
-You can also add your own language or change the existing configurations 
+You can also add your own language or change the existing configurations
 in the menu `Preferences->Lispindent->Settings`.
 
 For a minimal configuration that should work fine for most
@@ -53,7 +53,7 @@ the other languages.
 
 Replace `<file-endings>` with the possible file endings for your language.
 Note: without the dot!
-Delimit endings with `|`. 
+Delimit endings with `|`.
 Example: `lsp|lisp` for common lisp.
 
 ## Key bindings
@@ -73,7 +73,7 @@ To change key bindings, open the menu `Preferences->Lispindent`.
 Select `Key Bindings – Default` for windows/linux, or
 `Key Bindings – OSX` for mac.
 
-## License 
+## License
 
 sublime-lispindent is licensed under the [zlib](http://en.wikipedia.org/wiki/Zlib_license) license:
 
