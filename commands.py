@@ -73,6 +73,10 @@ def get_view_options(view):
 		return options[ft]
 
 def should_use_lisp_indent(view):
+	# Fix for SublimeREPL
+	# Necessary because lispindent activates on syntax.
+	if view.settings().get("repl"):
+		return False
 	return view.id() in views
 
 def test_view(view):
