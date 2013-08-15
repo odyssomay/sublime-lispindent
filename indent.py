@@ -11,11 +11,13 @@ def overlapping_regions(test_region, regions):
 
 	return out
 
+no_whitespace_matcher = re.compile("[^\s]")
 def remove_overlapping_regions(string, region, regions):
 	for r in regions:
 		b = max(r.begin(), region.begin()) - region.begin()
 		e = min(r.end(), region.end()) - region.begin()
-		string = string[:b] + ("_" * (e - b)) + string[e:]
+		replacement = no_whitespace_matcher.sub("_", string[b:e])
+		string = string[:b] + replacement + string[e:]
 
 	return string
 
