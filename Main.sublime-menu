@@ -11,42 +11,32 @@
 	      "id": "package-settings",
 	      "children":
 	      [
-					{
-						"caption": "Lispindent",
-						"children": [
-							{"caption": "Settings - Default", "command": "open_file", "args":
-								{"file": "${packages}/lispindent/lispindent.sublime-settings"}},
-							{"caption": "Settings - User", "command": "open_file", "args":
-								{"file": "${packages}/User/lispindent.sublime-settings"}},
-							{ "caption": "-" },
-							{"caption": "Key Bindings – Default", "command": "open_file", "args": {
-								"file": "${packages}/lispindent/Default (OSX).sublime-keymap",
-								"platform": "OSX"
-							}},
-							{"caption": "Key Bindings – Default", "command": "open_file", "args": {
-								"file": "${packages}/lispindent/Default.sublime-keymap",
-								"platform": "Linux"
-							}},
-							{"caption": "Key Bindings – Default", "command": "open_file", "args": {
-								"file": "${packages}/lispindent/Default.sublime-keymap",
-								"platform": "Windows"
-							}},
-							{"caption": "Key Bindings – User", "command": "open_file", "args": {
-								"file": "${packages}/User/Default (OSX).sublime-keymap",
-								"platform": "OSX"
-							}},
-							{"caption": "Key Bindings – User", "command": "open_file", "args": {
-								"file": "${packages}/User/Default.sublime-keymap",
-								"platform": "Linux"
-							}},
-							{"caption": "Key Bindings – User", "command": "open_file", "args": {
-								"file": "${packages}/User/Default.sublime-keymap",
-								"platform": "Windows"
-							}}
-						]
-					}
-				]
-			}
-		]
-	}
+				{
+					"caption": "Lispindent",
+					"children": [
+						{"caption": "Settings - Default", "command": "open_file", "args":
+							{"file": "${packages}/lispindent/lispindent.sublime-settings"}},
+						{"caption": "Settings - User", "command": "open_file", "args":
+							{"file": "${packages}/User/lispindent.sublime-settings"}},
+						{ "caption": "-" },
+						{"caption": "Key Bindings – Default", "command": "open_file", "args": {
+							"file": "${packages}/lispindent/Default.sublime-keymap"}},
+						{"caption": "Key Bindings – OSX Extension", "command": "open_file", "args": {
+							"file": "${packages}/lispindent/Default (OSX).sublime-keymap",
+							"platform": "OSX"}},
+						{"caption": "Key Bindings – User", "command": "open_file", "args": {
+							"file": "${packages}/User/Default (OSX).sublime-keymap",
+							"platform": "OSX"}},
+						{"caption": "Key Bindings – User", "command": "open_file", "args": {
+							"file": "${packages}/User/Default (Linux).sublime-keymap",
+							"platform": "Linux"}},
+						{"caption": "Key Bindings – User", "command": "open_file", "args": {
+							"file": "${packages}/User/Default (Windows).sublime-keymap",
+							"platform": "Windows"}}
+					]
+				}
+			]
+		}
+	]
+}
 ]
