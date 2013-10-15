@@ -34,7 +34,7 @@ open an issue or contact [me](https://github.com/odyssomay)
 to get it included.
 
 You can also add your own language or change the existing configurations
-in the menu `Preferences->Lispindent->Settings`.
+in the menu `Preferences->Package Settings->Lispindent->Settings`.
 
 For a minimal configuration that should work fine for most
 languages, I recommend the following:
@@ -69,7 +69,7 @@ Example: `lsp|lisp` for common lisp.
 	</tr>
 </table>
 
-To change key bindings, open the menu `Preferences->Lispindent`.
+To change key bindings, open the menu `Preferences->Package Settings->Lispindent`.
 Select `Key Bindings – Default` for windows/linux, or
 `Key Bindings – OSX` for mac.
 
