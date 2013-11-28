@@ -46,6 +46,8 @@ def insert_newline_and_indent(edit, view, options):
 		idx = view.sel()[i].begin()
 		view.insert(edit, idx,
 			"\n" + indent.get_indent_str(view, idx, options))
+			
+	view.show(sel)
 
 ###############################
 ## View file type + regexps
