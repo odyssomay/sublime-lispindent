@@ -11,6 +11,15 @@
 			 "doseq|dotimes|when-let|if-let|defstruct|struct-map|assoc|defmethod|testing|deftest|use-fixtures|",
 			 "handler-case|handle|dotrace|deftrace)$"]
 		},
+		
+		"hy": {
+			"detect": ".*\\.(hy)$",
+			"default_indent": "function",
+			"regex": [
+				"(def[^\\s]*|with-[^\\s]*|with_[^\\s]*|fn[^\\s]*|lambda[^\\s]*|",
+				"for|for*|while|except|catch|let|if|when|unless)$"
+			]
+		},
 
 		"racket": {
 			"detect": ".*\\.(rkt|rktl|rktd)$",
