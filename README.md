@@ -25,6 +25,7 @@ The location of the data folder varies between systems:
 <table>
 	<tr><td>clojure</td><td>.clj, .cljs, .edn</td></tr>
 	<tr><td>common lisp</td><td>.lsp, .lisp</td></tr>
+	<tr><td>hy</td><td>.hy</td></tr>
 	<tr><td>racket</td><td>.rkt, .rktd, .rktl</td></tr>
 	<tr><td>scheme</td><td>.ss, .scm, .sch</td></tr>
 </table>
